@@ -1,6 +1,25 @@
-let gridContainer = document.querySelector('.container')
+let gridContainer = document.querySelector('.container');
+let boxPerSide;
 
-for (let i = 1; i <= 1225; i++) {                 //This for loop will create the grid
+while (true) {
+    let popup = prompt('Enter number of grid box per side:');
+    boxPerSide = parseInt(popup);
+
+    if (boxPerSide > 100) {
+        alert('Too large');
+        continue;
+    }else if (boxPerSide < 0) {
+        alert('Enter a valid number');
+        continue;
+    }else if (boxPerSide > 0 && boxPerSide < 100){
+        break;
+    } else {
+        alert('Enter a valid input');
+    }
+}
+
+for (let i = boxPerSide; i <= boxPerSide*boxPerSide; i++) {                 //This for loop will create the grid
+    let boxSize = boxPerSide * 16;
     let gridBox = document.createElement('div');
     gridBox.setAttribute('class', 'box');
     gridBox.style.cssText = 'height:16px; width:16px;';
