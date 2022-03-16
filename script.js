@@ -1,10 +1,26 @@
 function createGrid(e) {
 
-    if (boxPerSide > 0) {
-        let grid = gridContainer.querySelectorAll('div');
-        grid.forEach(elem => elem.remove());
-    }
+    removeUsedGrid();
     
+    askBoxNumber();
+
+    for (let i = 1; i <= boxPerSide*boxPerSide; i++) {      //This for loop will create new grid
+        let gridBox = document.createElement('div');
+        gridBox.setAttribute('class', 'box');
+        gridBox.style.cssText = `height:${560/boxPerSide}px; width:${560/boxPerSide}px;`; //560 refers to the container display size
+        gridContainer.appendChild(gridBox);
+    }
+
+    let allBox = gridContainer.querySelectorAll('div');
+    allBox.forEach(box => box.addEventListener('mouseover', changeColor, {once:true})); //add event listener to each grid box
+}
+
+function changeColor(e) {
+    let oneBox = e.target;
+    oneBox.classList.add('boxhover');
+}
+
+function askBoxNumber() {
     while (true) {
         let popUp = prompt('Enter number of grid box per side:');
         boxPerSide = parseInt(popUp);
@@ -21,23 +37,13 @@ function createGrid(e) {
             alert('Enter a valid input');
         }
     }
-
-    for (let i = 1; i <= boxPerSide*boxPerSide; i++) {      //This for loop will create the grid
-        console.log(boxPerSide);
-        let gridBox = document.createElement('div');
-        gridBox.setAttribute('class', 'box');
-        gridBox.style.cssText = `height:${560/boxPerSide}px; width:${560/boxPerSide}px;`; //560 refers to the container display size
-        gridContainer.appendChild(gridBox);
-    }
-
-    let allBox = gridContainer.querySelectorAll('div');
-    allBox.forEach(box => box.addEventListener('mouseover', changeColor, {once:true}));
 }
 
-function changeColor(e) {
-    console.log(e.target);
-    let oneBox = e.target;
-    oneBox.classList.add('boxhover');
+function removeUsedGrid() {
+    if (boxPerSide > 0) {
+        let grid = gridContainer.querySelectorAll('div');
+        grid.forEach(elem => elem.remove());
+    }
 }
 
 let gridContainer = document.querySelector('.container');
