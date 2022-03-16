@@ -31,7 +31,7 @@ function createGrid(e) {
     }
 
     let allBox = gridContainer.querySelectorAll('div');
-    allBox.forEach(box => box.addEventListener('mouseover', changeColor));
+    allBox.forEach(box => box.addEventListener('mouseover', changeColor, {once:true}));
 }
 
 function changeColor(e) {
