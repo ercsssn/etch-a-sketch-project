@@ -18,11 +18,10 @@ while (true) {
     }
 }
 
-for (let i = boxPerSide; i <= boxPerSide*boxPerSide; i++) {                 //This for loop will create the grid
-    let boxSize = boxPerSide * 16;
+for (let i = 1; i <= boxPerSide*boxPerSide; i++) {                 //This for loop will create the grid
     let gridBox = document.createElement('div');
     gridBox.setAttribute('class', 'box');
-    gridBox.style.cssText = 'height:16px; width:16px;';
+    gridBox.style.cssText = `height:${560/boxPerSide}px; width:${560/boxPerSide}px;`;
     gridContainer.appendChild(gridBox);
 }
 
