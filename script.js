@@ -7,18 +7,27 @@ function createGrid(e) {
     for (let i = 1; i <= boxPerSide*boxPerSide; i++) {      //This for loop will create new grid
         let gridBox = document.createElement('div');
         gridBox.setAttribute('class', 'box');
-        gridBox.style.cssText = `background: black; height:${560/boxPerSide}px; width:${560/boxPerSide}px;`; 
+        gridBox.setAttribute('data-opacity',0);
+        gridBox.style.cssText = `background: white; height:${560/boxPerSide}px; width:${560/boxPerSide}px;`; 
         gridContainer.appendChild(gridBox);    //560 refers to the container display size
     }
         //maybe add an if else statement here if random color or shading mode
     let allBox = gridContainer.querySelectorAll('div');
-    allBox.forEach(box => box.addEventListener('mouseover', changeColor)); //add event listener to each grid box
+    allBox.forEach(box => box.addEventListener('mouseover',shadeBox)); //add event listener to each grid box
 }
 
 function changeColor(e) {
     let oneBox = e.target;
     let randomColor = Math.floor(Math.random()*16777215).toString(16); //this expression generates a hexadecimal output
     oneBox.style.cssText = `background-color: #${randomColor}; height:${560/boxPerSide}px; width:${560/boxPerSide}px;`;
+}
+
+function shadeBox(e) {
+    let oneBox = e.target;
+    currentOpacity = parseFloat(oneBox.getAttribute('data-opacity'));
+    oneBox.style.cssText = `background-color: rgba(0,0,0,${currentOpacity}); height:${560/boxPerSide}px; width:${560/boxPerSide}px;`;
+    currentOpacity = currentOpacity + 0.1;
+    oneBox.setAttribute('data-opacity',currentOpacity);
 }
 
 function askBoxNumber() {
