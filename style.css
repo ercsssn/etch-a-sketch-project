@@ -1,8 +1,9 @@
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
+    justify-content: space-between  ;
     align-items: center;
     min-height: 688px;
 
@@ -17,8 +18,23 @@ body {
 
 }
 
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     height: 800px;
     width: 800px;
