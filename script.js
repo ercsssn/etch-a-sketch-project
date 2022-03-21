@@ -25,8 +25,8 @@ function changeColor(e) {
 function shadeBox(e) {
     let oneBox = e.target;
     currentOpacity = parseFloat(oneBox.getAttribute('data-opacity'));
-    oneBox.style.cssText = `background-color: rgba(0,0,0,${currentOpacity}); height:${560/boxPerSide}px; width:${560/boxPerSide}px;`;
     currentOpacity = currentOpacity + 0.1;
+    oneBox.style.cssText = `background-color: rgba(0,0,0,${currentOpacity}); height:${560/boxPerSide}px; width:${560/boxPerSide}px;`;
     oneBox.setAttribute('data-opacity',currentOpacity);
 }
 
