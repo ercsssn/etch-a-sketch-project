@@ -7,7 +7,7 @@ function createGrid(e) {
     for (let i = 1; i <= boxPerSide*boxPerSide; i++) {      //This for loop will create new grid
         let gridBox = document.createElement('div');
         gridBox.setAttribute('class', 'box');
-        gridBox.style.cssText = `background: black; height:${560/boxPerSide}px; width:${560/boxPerSide}px;`; 
+        gridBox.style.cssText = `background: black; height:${800/boxPerSide}px; width:${800/boxPerSide}px;`; 
         gridContainer.appendChild(gridBox);    //560 refers to the container display size
     }
         //maybe add an if else statement here if random color or shading mode
@@ -18,7 +18,7 @@ function createGrid(e) {
 function changeColor(e) {
     let oneBox = e.target;
     let randomColor = Math.floor(Math.random()*16777215).toString(16); //this expression generates a hexadecimal output
-    oneBox.style.cssText = `background-color: #${randomColor}; height:${560/boxPerSide}px; width:${560/boxPerSide}px;`;
+    oneBox.style.cssText = `background-color: #${randomColor}; height:${800/boxPerSide}px; width:${800/boxPerSide}px;`;
 }
 
 function askBoxNumber() {
