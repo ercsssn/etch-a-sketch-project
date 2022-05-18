@@ -12,8 +12,8 @@ function createGrid(e) {
         gridContainer.appendChild(gridBox);    //560 refers to the container display size
     }
         //maybe add an if else statement here if random color or shading mode
-    let allBox = gridContainer.querySelectorAll('div');
-    allBox.forEach(box => box.addEventListener('mouseover',shadeBox)); //add event listener to each grid box
+    // let allBox = gridContainer.querySelectorAll('div');
+    // allBox.forEach(box => box.addEventListener('mouseover',shadeBox)); //add event listener to each grid box
 }
 
 function changeColor(e) {
@@ -62,3 +62,16 @@ let boxPerSide;
 
 let resetButton = document.querySelector('.title button');
 resetButton.addEventListener('click', createGrid);
+
+const shadeMode = document.querySelector(".shade");
+shadeMode.addEventListener("click", () => {
+    let allBox = gridContainer.querySelectorAll('div');
+    allBox.forEach(box => box.addEventListener('mouseover',shadeBox));
+
+});
+
+const colorMode = document.querySelector(".color");
+colorMode.addEventListener("click", () => {
+    let allBox = gridContainer.querySelectorAll('div');
+    allBox.forEach(box => box.addEventListener('mouseover',changeColor));
+});
